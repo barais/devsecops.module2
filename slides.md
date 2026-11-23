@@ -12,6 +12,10 @@ drawings:
 transition: slide-left
 title: "Cours 2 — Gestion de Versions & Git"
 mdc: true
+pdf: true
+export: true
+comark: true
+download: true
 ---
 
 # Gestion de Versions & Git
