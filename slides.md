@@ -2187,14 +2187,15 @@ layout: end
 
 # Questions ?
 
-<div class="pt-4 text-gray-600 dark:text-gray-400 text-sm">
+<div class="mt-8 max-w-2xl mx-auto text-left">
 
-**Olivier Barais** · IRISA / DiverSE · Université de Rennes
+**Ressources :**
 
-📧 olivier.barais@irisa.fr · 🌐 [irisa.fr](https://www.irisa.fr)
+- 📄 **Poly du cours** : [télécharger le poly (PDF)](https://raw.githubusercontent.com/barais/devsecops.module2/refs/heads/master/poly/poly.pdf)
+- ➡️ **Cours suivant — Outils de build et gestionnaires de paquets** : [https://olivier.barais.fr/devsecops.module3](https://olivier.barais.fr/devsecops.module3)
 
 </div>
 
-<div class="abs-br m-6 text-xs text-gray-600 dark:text-gray-500">
-Cours 2 — Gestion de Versions & Git · M2 DevSecOps
+<div class="mt-8 text-sm opacity-50">
+Olivier Barais · Module DevSecOps
 </div>
