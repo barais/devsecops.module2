@@ -172,7 +172,7 @@ Le défi fondamental du génie logiciel est de permettre à plusieurs développe
 
 La collaboration logicielle se structure autour de trois niveaux complémentaires :
 
-+ *Niveau artefact* — partager et versionner les fichiers sources. C'est le domaine des systèmes de gestion de versions (VCS), apparus dès 1985 avec RCS (Revision Control System).
++ *Niveau artefact* — partager et versionner les fichiers sources. C'est le domaine des systèmes de gestion de versions (VCS), apparus dès 1982 avec RCS (Revision Control System).
 
 + *Niveau social* — coordonner les équipes, les revues de code, les décisions d'architecture. C'est le domaine des forges logicielles comme GitHub et GitLab, qui ont émergé à partir de 2008.
 
@@ -208,6 +208,8 @@ Chaque commit Git est un événement horodaté, identifié par un hash cryptogra
 === Infrastructure as Code et dérive de configuration
 
 Toute configuration moderne — règles Terraform, manifestes Kubernetes, playbooks Ansible, règles SIEM — peut et doit être versionnée dans Git. Cette pratique, connue sous le nom d'*Infrastructure as Code* (IaC), offre plusieurs garanties de sécurité : toute dérive de configuration devient détectable par comparaison avec l'état du dépôt, toute restauration est reproductible, et l'historique permet de dater précisément l'introduction d'une mauvaise configuration.
+
+Cette diversification de Git — versionner au-delà du code : infrastructure, configurations, politiques (sécurité, réseau, observabilité) — est l'idée du *GitOps* : le dépôt devient la *source de vérité unique* de l'état *désiré* du système, et des pipelines appliquent automatiquement cet état, de façon auditable et reproductible.
 
 === Réponse aux incidents de sécurité
 
@@ -254,7 +256,7 @@ Ce scénario trivial illustre les trois problèmes fondamentaux de la collaborat
 
 == Les trois dimensions du SCM
 
-Le *Software Configuration Management* (SCM) a été théorisé par Estublier et al. dès 1995 @estublier1995. Trois dimensions structurent les enjeux :
+Le *Software Configuration Management* (SCM) a été théorisé par Estublier dans son article fondateur de 2000 @estublier1995. Trois dimensions structurent les enjeux :
 
 #grid(
   columns: (1fr, 1fr, 1fr),
@@ -841,7 +843,7 @@ git log --show-signature
 
 === Lien avec la supply chain
 
-La signature des commits est un élément clé de la sécurité de la chaîne d'approvisionnement logicielle. Dans le cadre du framework SLSA, la traçabilité de l'auteur de chaque changement est une exigence de niveau 2. L'initiative Sigstore propose une alternative moderne à GPG, basée sur OIDC (votre compte GitHub ou Google), qui élimine la complexité de la gestion de clés.
+La signature des commits est un élément clé de la sécurité de la chaîne d'approvisionnement logicielle. Elle soutient la traçabilité de l'auteur de chaque changement, une attente qui rejoint les exigences du framework SLSA — lequel porte avant tout sur l'intégrité et la provenance des artefacts construits. L'initiative Sigstore propose une alternative moderne à GPG, basée sur OIDC (votre compte GitHub ou Google), qui élimine la complexité de la gestion de clés.
 
 #alert(color: rgb("#0369a1"), icon: "ℹ")[
   Sur GitHub, les commits signés apparaissent avec un badge vert "Verified". Cette fonctionnalité est activée en ajoutant votre clé publique GPG dans vos paramètres (Settings → SSH and GPG keys → New GPG key).
@@ -1050,27 +1052,19 @@ Pour un RSSI, le dépôt Git est le premier maillon de la chaîne d'approvisionn
 
 == Ouvrages fondamentaux
 
-- *Scott Chacon & Ben Straub* — _Pro Git_ (2ème édition, 2014, Apress). Disponible gratuitement en français sur #link("https://git-scm.com/book/fr/v2"). La référence complète sur Git, de l'utilisation quotidienne aux mécanismes internes.
+- @chacon2014 — _Pro Git_ (2ème édition, 2014, Apress). Disponible gratuitement en français sur #link("https://git-scm.com/book/fr/v2"). La référence complète sur Git, de l'utilisation quotidienne aux mécanismes internes.
 
-- *Jez Humble, David Farley* — _Continuous Delivery_ (2010, Addison-Wesley). Pose les fondements des pratiques de livraison continue sur lesquelles les workflows Git modernes s'appuient.
+- @humble2010 — _Continuous Delivery_ (2010, Addison-Wesley). Pose les fondements des pratiques de livraison continue sur lesquelles les workflows Git modernes s'appuient.
 
-- *Gene Kim, Jez Humble, Patrick Debois, John Willis* — _The DevOps Handbook_ (2016, IT Revolution Press). Contextualise la gestion de versions dans le cadre plus large des pratiques DevOps.
-
-== Articles de référence
-
-- *Vincent Driessen* — « A successful Git branching model » (2010) : #link("https://nvie.com/posts/a-successful-git-branching-model/"). L'article original qui a introduit GitFlow.
-
-- *Chris Beams* — « How to Write a Git Commit Message » (2014) : #link("https://chris.beams.io/posts/git-commit/"). La référence sur les bonnes pratiques de messages de commit.
-
-- *Conventional Commits* — Spécification v1.0.0 : #link("https://www.conventionalcommits.org/fr/v1.0.0/")
-
-- *Trunk Based Development* — #link("https://trunkbaseddevelopment.com/"). Référence complète sur le TBD.
+- @kim2016devops — _The DevOps Handbook_ (2016, IT Revolution Press). Contextualise la gestion de versions dans le cadre plus large des pratiques DevOps.
 
 == Ressources d'apprentissage interactif
 
 - *Learn Git Branching* — #link("https://learngitbranching.js.org/?locale=fr_FR"). Visualisation interactive des opérations Git. Fortement recommandé pour comprendre le modèle de branches.
 
 - *GitHub Flow* — #link("https://docs.github.com/fr/get-started/using-github/github-flow"). Documentation officielle GitHub Flow.
+
+- *Trunk Based Development* — #link("https://trunkbaseddevelopment.com/"). Référence complète sur le TBD.
 
 == Ressources sécurité et supply chain
 

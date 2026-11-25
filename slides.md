@@ -285,7 +285,7 @@ layout: section
 <div v-click class="mt-1 p-1 bg-blue-900/20 rounded border border-blue-500/30 text-sm text-gray-900 dark:text-white">
 
 **Évolution historique :**
-- 1985 → VCS (gestion au niveau artefact)
+- 1982 → VCS / RCS (gestion au niveau artefact)
 - 2010 → Software Forges (collaboration sociale)
 - 2012 → CI/CD (collaboration automatisée)
 
@@ -364,7 +364,7 @@ rapport_VRAIMENT_FINAL.doc
 
 ## Les 3 dimensions du SCM
 
-**Software Configuration Management** — [Estublier et al. 1995]
+**Software Configuration Management** — [Estublier, SCM: A Roadmap, 2000]
 
 <div class="grid grid-cols-3 gap-4 mt-4">
 
@@ -395,7 +395,7 @@ rapport_VRAIMENT_FINAL.doc
 </div>
 
 <div v-click class="mt-3 text-xs text-center opacity-50">
-Estublier, J. et al. (1995). Software Process: Technology and Experience. Springer.
+Estublier, J. (2000). Software Configuration Management: A Roadmap. ACM FSE.
 </div>
 
 ---
